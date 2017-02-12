@@ -1,11 +1,8 @@
 package org.usfirst.frc.team6179.robot.commands;
 
 import org.usfirst.frc.team6179.robot.Robot;
-import org.usfirst.frc.team6179.tools.Vector3D;
 
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class DriveForward extends Command
 {
@@ -32,23 +29,30 @@ public class DriveForward extends Command
 	{
 		error = (distance - Robot.oldDriver.getRightDistance());
 		double angle = Robot.oldDriver.getAngle();
-		if (driveForwardSpeed * kP * error >= driveForwardSpeed) {
+		
+		if (driveForwardSpeed * kP * error >= driveForwardSpeed)
+		{
 			if(angle>5||angle<-5) Robot.oldDriver.drive(driveForwardSpeed, angle/Math.abs(angle), 0, 0);
 			else Robot.oldDriver.drive(driveForwardSpeed, angle*0.2, 0, 0);
-		} else {
+		} 
+		else 
+		{
 			if(angle>5||angle<-5) Robot.oldDriver.drive(driveForwardSpeed * kP * error, angle/Math.abs(angle), 0, 0);
 			else Robot.oldDriver.drive(driveForwardSpeed * kP * error, angle*0.2, 0, 0);
 		}
+		
 	}
 
 	@Override
-	protected boolean isFinished() {
+	protected boolean isFinished()
+	{
 		// TODO Auto-generated method stub
 		return Math.abs(error) <= kTolerance;
 	}
 	
 	@Override
-	protected void end() {
+	protected void end()
+	{
 		Robot.oldDriver.stop();
 	}
 

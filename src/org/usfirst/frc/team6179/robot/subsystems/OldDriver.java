@@ -1,7 +1,6 @@
 package org.usfirst.frc.team6179.robot.subsystems;
 
 import org.usfirst.frc.team6179.robot.RobotMap;
-
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.Encoder;
@@ -26,7 +25,7 @@ public class OldDriver extends Subsystem
 		rightMotor = new Victor(RobotMap.rightMotorPort);
 		leftMotor = new Victor(RobotMap.leftMotorPort);
 		drive = new RobotDrive(leftMotor,rightMotor);
-		
+
 		leftEncoder = new Encoder(RobotMap.leftEncoderPortA,RobotMap.leftEncoderPortB,false,EncodingType.k4X);
 		rightEncoder = new Encoder(RobotMap.rightEncoderPortA,RobotMap.rightEncoderPortB,true,EncodingType.k4X);
 		rightEncoder.setDistancePerPulse(0.0785398);
@@ -61,13 +60,7 @@ public class OldDriver extends Subsystem
 		
 		drive.arcadeDrive(MoveValue, RotateValue);
 	}
-
-	@Override
-	protected void initDefaultCommand() {
-		// TODO Auto-generated method stub
-		
-	}
-
+	
 	public double getLeftDistance() {
 		return leftEncoder.getDistance();
 	}
@@ -80,4 +73,11 @@ public class OldDriver extends Subsystem
 		drive(0,0,0,0);
 	}
 	
+
+	@Override
+	protected void initDefaultCommand() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
