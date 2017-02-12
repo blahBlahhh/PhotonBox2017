@@ -19,17 +19,19 @@ public class RobotMap
 	// public static int rangefinderModule = 1;
 	public static int fuelCollectorPort = 0;
 	public static int fuelShooterPort = 1;
-	public static int fuelBlender = 2;
+	public static int fuelBlenderPort = 3;
+	public static int fuelDeliverer = 4;
 
 	public static int rightForwardSolenoidPort = 0;
 	public static int rightReverseSolenoidPort = 1;
 	public static int leftForwardSolenoidPort = 2;
 	public static int leftReverseSolenoidPort = 3;
 	
-	public static int rightMotorPort = 3;
-	public static int leftMotorPort = 4;
+	public static int rightMotorPort = 6;
+	public static int leftMotorPort = 7;
 	
-	public static int ropeClimberPort = 5;
+	public static int ropeClimberPort = 2;
+	
 	
 	public static int rightEncoderPortA = 0;
 	public static int rightEncoderPortB = 1;
