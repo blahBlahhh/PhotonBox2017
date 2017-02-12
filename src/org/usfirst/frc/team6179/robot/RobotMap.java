@@ -28,5 +28,11 @@ public class RobotMap {
 	public static int rightMotorPort = 3;
 	public static int leftMotorPort = 4;
 	
+	public static int rightEncoderPortA = 0;
+	public static int rightEncoderPortB = 1;
+	public static int leftEncoderPortA = 2;
+	public static int leftEncoderPortB = 3;
+	
+	
 	public static int ropeClimberPort = 5;
 }

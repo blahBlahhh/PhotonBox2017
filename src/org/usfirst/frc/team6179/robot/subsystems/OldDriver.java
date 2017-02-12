@@ -1,16 +1,15 @@
 package org.usfirst.frc.team6179.robot.subsystems;
 
 import org.usfirst.frc.team6179.robot.RobotMap;
-import org.usfirst.frc.team6179.tools.Vector3D;
 
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
-import edu.wpi.first.wpilibj.BuiltInAccelerometer;
+import edu.wpi.first.wpilibj.CounterBase.EncodingType;
+import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.PIDSourceType;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.interfaces.Accelerometer.Range;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class OldDriver extends Subsystem
 {
@@ -19,38 +18,36 @@ public class OldDriver extends Subsystem
 	SpeedController leftMotor;
 	RobotDrive drive;
 	ADXRS450_Gyro gyro;
-	BuiltInAccelerometer acc;
+	Encoder leftEncoder;
+	Encoder rightEncoder;
 	
 	public OldDriver()
 	{
 		rightMotor = new Victor(RobotMap.rightMotorPort);
 		leftMotor = new Victor(RobotMap.leftMotorPort);
 		drive = new RobotDrive(leftMotor,rightMotor);
+		
+		leftEncoder = new Encoder(RobotMap.leftEncoderPortA,RobotMap.leftEncoderPortB,false,EncodingType.k4X);
+		rightEncoder = new Encoder(RobotMap.rightEncoderPortA,RobotMap.rightEncoderPortB,true,EncodingType.k4X);
+		rightEncoder.setDistancePerPulse(0.0785398);
+		leftEncoder.setDistancePerPulse(0.0785398);
+		rightEncoder.setPIDSourceType(PIDSourceType.kDisplacement);
+		leftEncoder.setPIDSourceType(PIDSourceType.kDisplacement);
+		
 		gyro = new ADXRS450_Gyro();
-		acc = new BuiltInAccelerometer();
 		gyro.calibrate();
 	}
 	
 	public void init()
 	{
 		gyro.reset();
-		acc.setRange(Range.k2G);
+		leftEncoder.reset();
+		rightEncoder.reset();
 	}
 	
 	public double getAngle()
 	{
 		return gyro.getAngle();
-	}
-	
-	public Vector3D getAcc()
-	{
-		//SmartDashboard.putNumber("X", Math.floor((acc.getX()-0.004)*100)/100);
-		//SmartDashboard.putNumber("Y", Math.floor((acc.getY()+0.02)*100)/100);
-		//SmartDashboard.putNumber("Z", Math.floor((acc.getZ()-1.02)*100)/100);
-		SmartDashboard.putNumber("X", acc.getX());
-		SmartDashboard.putNumber("Y", acc.getY()+0.02);
-		SmartDashboard.putNumber("Z", acc.getZ()-1.02);
-		return new Vector3D(acc.getX(),acc.getY()+0.02,acc.getZ()-1.02).mul(100).floor().div(100);
 	}
 	
 	public void drive(double HongKongMoveValue,double HongKongRotateValue,double WesternMoveValue,double WesternRotateValue)
@@ -71,4 +68,16 @@ public class OldDriver extends Subsystem
 		
 	}
 
+	public double getLeftDistance() {
+		return leftEncoder.getDistance();
+	}
+	
+	public double getRightDistance() {
+		return rightEncoder.getDistance();
+	}
+	
+	public void stop(){
+		drive(0,0,0,0);
+	}
+	
 }
