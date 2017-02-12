@@ -5,6 +5,7 @@ import org.usfirst.frc.team6179.robot.commands.DriveForward;
 import org.usfirst.frc.team6179.robot.commands.DriveWithOldStick;
 import org.usfirst.frc.team6179.robot.subsystems.FuelBlender;
 import org.usfirst.frc.team6179.robot.subsystems.FuelCollector;
+import org.usfirst.frc.team6179.robot.subsystems.FuelDeliverer;
 import org.usfirst.frc.team6179.robot.subsystems.FuelShooter;
 import org.usfirst.frc.team6179.robot.subsystems.GearCollector;
 import org.usfirst.frc.team6179.robot.subsystems.OldDriver;
@@ -25,6 +26,7 @@ public class Robot extends IterativeRobot {
 
 	public static OI oi;
 	public static FuelBlender fuelBlender = new FuelBlender();
+	public static FuelDeliverer fuelDeliverer = new FuelDeliverer();
 	public static FuelShooter fuelShooter = new FuelShooter();
 	public static FuelCollector fuelCollector = new FuelCollector();
 	public static GearCollector gearCollector = new GearCollector();

@@ -20,7 +20,7 @@ public class RobotMap
 	public static int fuelCollectorPort = 0;
 	public static int fuelShooterPort = 1;
 	public static int fuelBlenderPort = 3;
-	public static int fuelDeliverer = 4;
+	public static int fuelDelivererPort = 4;
 
 	public static int rightForwardSolenoidPort = 0;
 	public static int rightReverseSolenoidPort = 1;

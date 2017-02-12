@@ -18,6 +18,7 @@ public class ShootFuel extends Command {
 		Robot.fuelShooter.start();
 		Timer.delay(0.5);
 		Robot.fuelBlender.start();
+		Robot.fuelDeliverer.start();
 	}
 
 	@Override
@@ -37,6 +38,7 @@ public class ShootFuel extends Command {
 	{
 		Robot.fuelShooter.stop();
 		Robot.fuelBlender.stop();
+		Robot.fuelDeliverer.stop();
 	}
 
 	@Override

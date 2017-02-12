@@ -6,24 +6,24 @@ import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
-public class FuelBlender extends Subsystem
+public class FuelDeliverer extends Subsystem
 {
 	
-	SpeedController fuelBlender;
+	SpeedController fuelDeliverer;
 	
-	public FuelBlender()
+	public FuelDeliverer()
 	{
-		fuelBlender = new Talon(RobotMap.fuelBlenderPort);
+		fuelDeliverer = new Talon(RobotMap.fuelDelivererPort);
 	}
 	
 	public void start()
 	{
-		fuelBlender.set(1);
+		fuelDeliverer.set(1);
 	}
 	
 	public void stop()
 	{
-		fuelBlender.set(0);
+		fuelDeliverer.disable();
 	}
 
 	@Override
