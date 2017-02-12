@@ -4,7 +4,6 @@ import org.usfirst.frc.team6179.robot.RobotMap;
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.Encoder;
-import edu.wpi.first.wpilibj.PIDSourceType;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Victor;
@@ -27,11 +26,12 @@ public class OldDriver extends Subsystem
 		drive = new RobotDrive(leftMotor,rightMotor);
 
 		leftEncoder = new Encoder(RobotMap.leftEncoderPortA,RobotMap.leftEncoderPortB,false,EncodingType.k4X);
+		leftEncoder.setIndexSource(RobotMap.leftEncoderIndexPort);
 		rightEncoder = new Encoder(RobotMap.rightEncoderPortA,RobotMap.rightEncoderPortB,true,EncodingType.k4X);
-		rightEncoder.setDistancePerPulse(0.0785398);
-		leftEncoder.setDistancePerPulse(0.0785398);
-		rightEncoder.setPIDSourceType(PIDSourceType.kDisplacement);
-		leftEncoder.setPIDSourceType(PIDSourceType.kDisplacement);
+		rightEncoder.setIndexSource(RobotMap.rightEncoderIndexPort);
+		leftEncoder.setDistancePerPulse(0.037704);
+		rightEncoder.setDistancePerPulse(0.037704);
+		
 		
 		gyro = new ADXRS450_Gyro();
 		gyro.calibrate();

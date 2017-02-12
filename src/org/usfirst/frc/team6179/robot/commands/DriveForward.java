@@ -13,11 +13,11 @@ public class DriveForward extends Command
 	double kP = -0.2;
 	double kTolerance = 0.1;
 	
-	public DriveForward(double distance, double driveForwardSpeed)
+	public DriveForward(double distance, double maxSpeed)
 	{
 		requires(Robot.oldDriver);
 		this.distance = distance;
-		this.driveForwardSpeed = driveForwardSpeed;
+		this.driveForwardSpeed = maxSpeed;
 	}
 	
 	protected void initialize()
