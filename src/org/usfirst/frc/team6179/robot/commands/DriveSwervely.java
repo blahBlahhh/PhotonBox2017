@@ -28,10 +28,11 @@ public class DriveSwervely extends Command
 	protected void execute()
 	{
 		error = (angle - Robot.oldDriver.getAngle());
+		//error = (Robot.oldDriver.getAngle() - angle);
 		
 		if(Math.abs(turningSpeed * kP * error) >= turningSpeed)
 		{
-			Robot.oldDriver.drive(0, turningSpeed*angle/Math.abs(angle), 0, 0);
+			Robot.oldDriver.drive(0, turningSpeed*error/Math.abs(error), 0, 0);
 		}
 		else
 		{
@@ -47,7 +48,7 @@ public class DriveSwervely extends Command
 	
 	protected void end()
 	{
-		Robot.oldDriver.drive(0, 0, 0, 0);
+		Robot.oldDriver.stop();
 	}
 	
 	protected void interrupted()

@@ -32,13 +32,13 @@ public class DriveForward extends Command
 		
 		if (driveForwardSpeed * kP * error >= driveForwardSpeed)
 		{
-			if(angle>5||angle<-5) Robot.oldDriver.drive(driveForwardSpeed, angle/Math.abs(angle), 0, 0);
-			else Robot.oldDriver.drive(driveForwardSpeed, angle*0.2, 0, 0);
+			if(angle>5||angle<-5) Robot.oldDriver.drive(driveForwardSpeed * error/Math.abs(error), angle/Math.abs(angle), 0, 0);
+			else Robot.oldDriver.drive(driveForwardSpeed * error/Math.abs(error), angle*0.2, 0, 0);
 		} 
 		else 
 		{
-			if(angle>5||angle<-5) Robot.oldDriver.drive(driveForwardSpeed * kP * error, angle/Math.abs(angle), 0, 0);
-			else Robot.oldDriver.drive(driveForwardSpeed * kP * error, angle*0.2, 0, 0);
+			if(angle>10||angle<-10) Robot.oldDriver.drive(driveForwardSpeed * kP * error, angle/Math.abs(angle), 0, 0);
+			else Robot.oldDriver.drive(driveForwardSpeed * kP * error, angle*0.1, 0, 0);
 		}
 		
 	}
