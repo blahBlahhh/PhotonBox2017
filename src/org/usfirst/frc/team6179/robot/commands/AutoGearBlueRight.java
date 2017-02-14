@@ -7,11 +7,11 @@ public class AutoGearBlueRight extends CommandGroup
 {
 	public AutoGearBlueRight()
 	{
-		addSequential(new DriveForward(-52.6, 1));   //52.6cm =====>133.6inches
+		addSequential(new DriveForward(-133.6, 1));   //52.6cm =====>133.6inches
 		addSequential(new DriveSwervely(-60, 1));    //Counterclockwise 60 degrees
-		addSequential(new DriveForward(-8.8, 1));    //8.82cm======>22.4inches
+		addSequential(new DriveForward(-22.4, 1));    //8.82cm======>22.4inches
 		addSequential(new DeliverGear());
 		Timer.delay(2); 							//TODO Revise after testing
-		addSequential(new DriveForward(8.8,1));
+		addSequential(new DriveForward(22.4,1));
 	}
 }
