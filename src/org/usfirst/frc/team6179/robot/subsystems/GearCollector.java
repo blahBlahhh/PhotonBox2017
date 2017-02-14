@@ -8,25 +8,21 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class GearCollector extends Subsystem
 {
 	
-	DoubleSolenoid rightSolenoid;
-	DoubleSolenoid leftSolenoid;
+	DoubleSolenoid solenoid;
 	
 	public GearCollector()
 	{
-		rightSolenoid = new DoubleSolenoid(RobotMap.rightForwardSolenoidPort,RobotMap.rightReverseSolenoidPort);
-		leftSolenoid = new DoubleSolenoid(RobotMap.leftForwardSolenoidPort,RobotMap.leftReverseSolenoidPort);
+		solenoid = new DoubleSolenoid(RobotMap.forwardSolenoidPort,RobotMap.reverseSolenoidPort);
 	}
 	
 	public void open()
 	{
-		rightSolenoid.set(DoubleSolenoid.Value.kReverse);
-		leftSolenoid.set(DoubleSolenoid.Value.kReverse);
+		solenoid.set(DoubleSolenoid.Value.kReverse);
 	}
 	
 	public void close()
 	{
-		rightSolenoid.set(DoubleSolenoid.Value.kForward);
-		leftSolenoid.set(DoubleSolenoid.Value.kForward);
+		solenoid.set(DoubleSolenoid.Value.kForward);
 	}
 
 	@Override

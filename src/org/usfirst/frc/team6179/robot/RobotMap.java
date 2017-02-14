@@ -22,10 +22,8 @@ public class RobotMap
 	public static int fuelBlenderPort = 3;
 	public static int fuelDelivererPort = 4;
 
-	public static int rightForwardSolenoidPort = 0;
-	public static int rightReverseSolenoidPort = 1;
-	public static int leftForwardSolenoidPort = 2;
-	public static int leftReverseSolenoidPort = 3;
+	public static int forwardSolenoidPort = 0;
+	public static int reverseSolenoidPort = 1;
 	
 	public static int rightMotorPort = 6;
 	public static int leftMotorPort = 7;
