@@ -18,7 +18,7 @@ public class FuelCollector extends Subsystem
 	
 	public void start()
 	{
-		fuelCollector.set(-1);
+		fuelCollector.set(1);
 	}
 	
 	public void stop()

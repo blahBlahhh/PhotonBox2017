@@ -18,7 +18,7 @@ public class FuelShooter extends Subsystem
 	
 	public void start()
 	{
-		fuelShooter.set(0.8);
+		fuelShooter.set(-1);
 	}
 	
 	public void stop()

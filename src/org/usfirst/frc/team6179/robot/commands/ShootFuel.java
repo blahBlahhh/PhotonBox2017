@@ -10,6 +10,7 @@ public class ShootFuel extends Command {
 	public ShootFuel(){
 		requires(Robot.fuelShooter);
 		requires(Robot.fuelBlender);
+		requires(Robot.fuelDeliverer);
 	}
 
 	@Override
