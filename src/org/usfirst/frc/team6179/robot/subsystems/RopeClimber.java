@@ -3,7 +3,7 @@ package org.usfirst.frc.team6179.robot.subsystems;
 import org.usfirst.frc.team6179.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.SpeedController;
-import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class RopeClimber extends Subsystem
@@ -13,7 +13,7 @@ public class RopeClimber extends Subsystem
 	
 	public RopeClimber()
 	{
-		ropeClimber = new Talon(RobotMap.ropeClimberPort);
+		ropeClimber = new Victor(RobotMap.ropeClimberPort);
 	}
 	
 	public void start()

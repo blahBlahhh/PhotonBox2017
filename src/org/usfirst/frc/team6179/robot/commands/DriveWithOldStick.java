@@ -15,7 +15,7 @@ public class DriveWithOldStick extends Command {
 
 	@Override
 	protected void execute() {
-		Robot.oldDriver.drive(-Robot.oi.getStick().getY(),Robot.oi.getStick().getX(),-Robot.oi.getStick().getThrottle(),Robot.oi.getStick().getZ());
+		Robot.oldDriver.drive(-Robot.oi.getStick().getY(),-Robot.oi.getStick().getX(),-Robot.oi.getStick().getThrottle(),-Robot.oi.getStick().getZ());
 	}
 
 	@Override

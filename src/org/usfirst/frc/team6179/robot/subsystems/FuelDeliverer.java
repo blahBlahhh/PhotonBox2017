@@ -3,7 +3,7 @@ package org.usfirst.frc.team6179.robot.subsystems;
 import org.usfirst.frc.team6179.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.SpeedController;
-import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class FuelDeliverer extends Subsystem
@@ -13,7 +13,7 @@ public class FuelDeliverer extends Subsystem
 	
 	public FuelDeliverer()
 	{
-		fuelDeliverer = new Talon(RobotMap.fuelDelivererPort);
+		fuelDeliverer = new Victor(RobotMap.fuelDelivererPort);
 	}
 	
 	public void start()

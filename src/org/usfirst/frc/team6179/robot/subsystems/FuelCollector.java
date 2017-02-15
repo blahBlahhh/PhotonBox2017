@@ -3,7 +3,7 @@ package org.usfirst.frc.team6179.robot.subsystems;
 import org.usfirst.frc.team6179.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.SpeedController;
-import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class FuelCollector extends Subsystem
@@ -13,12 +13,12 @@ public class FuelCollector extends Subsystem
 	
 	public FuelCollector()
 	{
-		fuelCollector= new Talon(RobotMap.fuelCollectorPort);
+		fuelCollector= new Victor(RobotMap.fuelCollectorPort);
 	}
 	
 	public void start()
 	{
-		fuelCollector.set(1);
+		fuelCollector.set(-1);
 	}
 	
 	public void stop()

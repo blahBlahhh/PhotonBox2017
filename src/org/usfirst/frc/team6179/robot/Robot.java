@@ -1,6 +1,7 @@
 
 package org.usfirst.frc.team6179.robot;
 
+import org.usfirst.frc.team6179.robot.commands.AutoGearBlueRight;
 import org.usfirst.frc.team6179.robot.commands.DriveForward;
 import org.usfirst.frc.team6179.robot.commands.DriveWithOldStick;
 import org.usfirst.frc.team6179.robot.subsystems.FuelBlender;
@@ -74,7 +75,6 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		new DriveForward(1,1).start();
 //		autonomousCommand = chooser.getSelected();
 
 		/*

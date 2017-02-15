@@ -3,6 +3,7 @@ package org.usfirst.frc.team6179.robot.commands;
 import org.usfirst.frc.team6179.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class DriveForward extends Command
 {

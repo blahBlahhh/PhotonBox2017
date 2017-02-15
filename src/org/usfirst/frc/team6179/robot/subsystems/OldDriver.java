@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.SpeedController;
-import edu.wpi.first.wpilibj.Victor;
+import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class OldDriver extends Subsystem
@@ -21,8 +21,8 @@ public class OldDriver extends Subsystem
 	
 	public OldDriver()
 	{
-		rightMotor = new Victor(RobotMap.rightMotorPort);
-		leftMotor = new Victor(RobotMap.leftMotorPort);
+		rightMotor = new Talon(RobotMap.rightMotorPort);
+		leftMotor = new Talon(RobotMap.leftMotorPort);
 		drive = new RobotDrive(leftMotor,rightMotor);
 
 		leftEncoder = new Encoder(RobotMap.leftEncoderPortA,RobotMap.leftEncoderPortB,false,EncodingType.k4X);
