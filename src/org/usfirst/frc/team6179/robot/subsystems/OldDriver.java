@@ -76,6 +76,14 @@ public class OldDriver extends Subsystem
 		return rightEncoder.getDistance();
 	}
 	
+	public int getLeftRaw() {
+		return leftEncoder.getRaw();
+	}
+	
+	public int getRightRaw() {
+		return rightEncoder.getRaw();
+	}
+	
 	public void stop(){
 		drive(0,0,0,0);
 	}

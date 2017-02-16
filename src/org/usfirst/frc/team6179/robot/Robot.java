@@ -133,5 +133,7 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putNumber("Left Encoder Distance", oldDriver.getLeftDistance());
 		SmartDashboard.putNumber("Right Encoder Distance", oldDriver.getRightDistance());
 		SmartDashboard.putNumber("Gyro", oldDriver.getAngle());
+		SmartDashboard.putNumber("Left Encoder Raw Counter", oldDriver.getLeftRaw());
+		SmartDashboard.putNumber("Right Encoder Raw Counter", oldDriver.getRightRaw());
 	}
 }
