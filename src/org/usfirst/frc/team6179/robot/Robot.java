@@ -2,6 +2,8 @@
 package org.usfirst.frc.team6179.robot;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
+import org.usfirst.frc.team6179.robot.commands.DriveForward;
 import org.usfirst.frc.team6179.robot.commands.DriveWithOldStick;
 import org.usfirst.frc.team6179.robot.subsystems.FuelBlender;
 import org.usfirst.frc.team6179.robot.subsystems.FuelCollector;
@@ -78,6 +80,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
+		new DriveForward(45, 0.5).start();
 //		autonomousCommand = chooser.getSelected();
 
 		/*
