@@ -6,8 +6,6 @@ import org.usfirst.frc.team6179.robot.RobotMap;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
-import javax.xml.transform.SourceLocator;
-
 public class GearCollector extends Subsystem
 {
 	

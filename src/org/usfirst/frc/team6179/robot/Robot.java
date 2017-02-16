@@ -2,8 +2,6 @@
 package org.usfirst.frc.team6179.robot;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import org.usfirst.frc.team6179.robot.commands.AutoGearBlueRight;
-import org.usfirst.frc.team6179.robot.commands.DriveForward;
 import org.usfirst.frc.team6179.robot.commands.DriveWithOldStick;
 import org.usfirst.frc.team6179.robot.subsystems.FuelBlender;
 import org.usfirst.frc.team6179.robot.subsystems.FuelCollector;
