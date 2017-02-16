@@ -11,7 +11,8 @@ public class DriveForward extends Command
 	double distance;
 	double error;
 	double driveForwardSpeed;
-	double kP = -0.2;
+	double kDP = 0.2;
+	double kAP = -0.05;
 	double kTolerance = 0.1;
 	
 	public DriveForward(double distance, double maxSpeed)
@@ -31,15 +32,12 @@ public class DriveForward extends Command
 		error = (distance - Robot.oldDriver.getRightDistance());
 		double angle = Robot.oldDriver.getAngle();
 		
-		if (driveForwardSpeed * kP * error >= driveForwardSpeed)
-		{
-			if(angle>5||angle<-5) Robot.oldDriver.drive(driveForwardSpeed * error/Math.abs(error), angle/Math.abs(angle), 0, 0);
-			else Robot.oldDriver.drive(driveForwardSpeed * error/Math.abs(error), angle*0.2, 0, 0);
-		} 
-		else 
-		{
-			if(angle>10||angle<-10) Robot.oldDriver.drive(driveForwardSpeed * kP * error, angle/Math.abs(angle), 0, 0);
-			else Robot.oldDriver.drive(driveForwardSpeed * kP * error, angle*0.1, 0, 0);
+		if (Math.abs(driveForwardSpeed * kDP * error) >= driveForwardSpeed){
+			if(Math.abs(angle*kAP)>1) Robot.oldDriver.drive(driveForwardSpeed * error/Math.abs(error), angle/Math.abs(angle), 0, 0);
+			else Robot.oldDriver.drive(driveForwardSpeed * error/Math.abs(error), angle*kAP, 0, 0);
+		} else {
+			if(Math.abs(angle*kAP)>1) Robot.oldDriver.drive(driveForwardSpeed * kDP * error, angle/Math.abs(angle), 0, 0);
+			else Robot.oldDriver.drive(driveForwardSpeed * kDP * error, angle*kAP, 0, 0);
 		}
 		
 	}

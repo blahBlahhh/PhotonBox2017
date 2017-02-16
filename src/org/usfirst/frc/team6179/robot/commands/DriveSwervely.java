@@ -10,7 +10,7 @@ public class DriveSwervely extends Command
 	double angle;
 	double turningSpeed;
 	double error;
-	double kP = 0.2;
+	double kP = 0.1;
 	double kTolerance = 0.1;
 	
 	public DriveSwervely(double angle, double maxSpeed)
@@ -28,7 +28,6 @@ public class DriveSwervely extends Command
 	protected void execute()
 	{
 		error = (angle - Robot.oldDriver.getAngle());
-		//error = (Robot.oldDriver.getAngle() - angle);
 		
 		if(Math.abs(turningSpeed * kP * error) >= turningSpeed)
 		{
