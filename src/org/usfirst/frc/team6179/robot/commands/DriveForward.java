@@ -47,7 +47,6 @@ public class DriveForward extends Command
 	@Override
 	protected boolean isFinished()
 	{
-		// TODO Auto-generated method stub
 		return Math.abs(error) <= kTolerance;
 	}
 	

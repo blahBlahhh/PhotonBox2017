@@ -3,10 +3,7 @@ package org.usfirst.frc.team6179.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
-import org.usfirst.frc.team6179.robot.commands.ClimbRope;
-import org.usfirst.frc.team6179.robot.commands.CollectFuel;
-import org.usfirst.frc.team6179.robot.commands.DeliverGear;
-import org.usfirst.frc.team6179.robot.commands.ShootFuel;
+import org.usfirst.frc.team6179.robot.commands.*;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -26,6 +23,7 @@ public class OI {
 		 new JoystickButton(stick,2).toggleWhenPressed(new CollectFuel());
 		 new JoystickButton(stick,3).toggleWhenPressed(new DeliverGear());
 		 new JoystickButton(stick,4).toggleWhenPressed(new ClimbRope());
+		 new JoystickButton(stick,5).toggleWhenPressed(new ReverseFuelBlender());	//TODO check whether ShootFuel() is interrupted
 	 }
 	 
 	 public Joystick getStick()

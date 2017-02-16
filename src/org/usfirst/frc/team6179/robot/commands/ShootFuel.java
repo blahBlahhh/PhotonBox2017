@@ -18,7 +18,7 @@ public class ShootFuel extends Command {
 	{
 		Robot.fuelShooter.start();
 		Timer.delay(0.5);
-		Robot.fuelBlender.start();
+		Robot.fuelBlender.forward();
 		Robot.fuelDeliverer.start();
 	}
 

@@ -16,9 +16,13 @@ public class FuelBlender extends Subsystem
 		fuelBlender = new Victor(RobotMap.fuelBlenderPort);
 	}
 	
-	public void start()
+	public void forward()
 	{
 		fuelBlender.set(0.8);
+	}
+
+	public void reverse() {
+		fuelBlender.set(-0.8);
 	}
 	
 	public void stop()
@@ -28,8 +32,7 @@ public class FuelBlender extends Subsystem
 
 	@Override
 	protected void initDefaultCommand() {
-		// TODO Auto-generated method stub
-		
+
 	}
 
 }

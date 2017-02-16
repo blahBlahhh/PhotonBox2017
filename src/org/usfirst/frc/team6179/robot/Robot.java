@@ -1,6 +1,7 @@
 
 package org.usfirst.frc.team6179.robot;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team6179.robot.commands.AutoGearBlueRight;
 import org.usfirst.frc.team6179.robot.commands.DriveForward;
 import org.usfirst.frc.team6179.robot.commands.DriveWithOldStick;
@@ -43,6 +44,10 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
+
+		SmartDashboard.putData(oldDriver);
+		SmartDashboard.putData(gearCollector);
+
 		oi = new OI();
 
 	}
@@ -95,6 +100,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
+		log();
 	}
 
 	@Override
@@ -114,6 +120,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+		log();
 	}
 
 	/**
@@ -122,5 +129,11 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void testPeriodic() {
 		LiveWindow.run();
+	}
+
+	private void log() {
+		SmartDashboard.putNumber("Left Encoder Distance", oldDriver.getLeftDistance());
+		SmartDashboard.putNumber("Right Encoder Distance", oldDriver.getRightDistance());
+		SmartDashboard.putNumber("Gyro", oldDriver.getAngle());
 	}
 }

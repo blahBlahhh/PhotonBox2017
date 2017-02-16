@@ -1,5 +1,6 @@
 package org.usfirst.frc.team6179.robot.subsystems;
 
+import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import org.usfirst.frc.team6179.robot.RobotMap;
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.CounterBase.EncodingType;
@@ -35,6 +36,12 @@ public class OldDriver extends Subsystem
 		
 		gyro = new ADXRS450_Gyro();
 		gyro.calibrate();
+
+		LiveWindow.addActuator("Old Driver", "Left Motor", (Talon) leftMotor);
+		LiveWindow.addActuator("Old Driver", "Right Motor", (Talon) rightMotor);
+		LiveWindow.addSensor("Encoder", "Left Encoder", leftEncoder);
+		LiveWindow.addSensor("Encoder", "Right Encoder", rightEncoder);
+		LiveWindow.addSensor("Gyro", "Gyro", gyro);
 	}
 	
 	public void init()
@@ -76,8 +83,7 @@ public class OldDriver extends Subsystem
 
 	@Override
 	protected void initDefaultCommand() {
-		// TODO Auto-generated method stub
-		
+
 	}
 
 }

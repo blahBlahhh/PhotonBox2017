@@ -42,7 +42,6 @@ public class DriveSwervely extends Command
 
 	@Override
 	protected boolean isFinished() {
-		// TODO Auto-generated method stub
 		return Math.abs(error) <= kTolerance;
 	}
 	
