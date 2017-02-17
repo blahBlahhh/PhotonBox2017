@@ -3,7 +3,6 @@ package org.usfirst.frc.team6179.robot;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import org.usfirst.frc.team6179.robot.commands.DriveForward;
 import org.usfirst.frc.team6179.robot.commands.DriveWithOldStick;
 import org.usfirst.frc.team6179.robot.subsystems.FuelBlender;
 import org.usfirst.frc.team6179.robot.subsystems.FuelCollector;
@@ -15,7 +14,6 @@ import org.usfirst.frc.team6179.robot.subsystems.RopeClimber;
 
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
