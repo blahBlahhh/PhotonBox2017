@@ -5,7 +5,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team6179.robot.commands.DriveForward;
 import org.usfirst.frc.team6179.robot.commands.DriveWithOldStick;
-import org.usfirst.frc.team6179.robot.subsystems.Cameras;
 import org.usfirst.frc.team6179.robot.subsystems.FuelBlender;
 import org.usfirst.frc.team6179.robot.subsystems.FuelCollector;
 import org.usfirst.frc.team6179.robot.subsystems.FuelDeliverer;
@@ -14,7 +13,9 @@ import org.usfirst.frc.team6179.robot.subsystems.GearCollector;
 import org.usfirst.frc.team6179.robot.subsystems.OldDriver;
 import org.usfirst.frc.team6179.robot.subsystems.RopeClimber;
 
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
@@ -35,7 +36,6 @@ public class Robot extends IterativeRobot {
 	public static GearCollector gearCollector = new GearCollector();
 	public static RopeClimber ropeClimber = new RopeClimber();
 	public static OldDriver oldDriver = new OldDriver();
-	public static Cameras cameras = new Cameras();
 
 //	Command autonomousCommand;
 //	SendableChooser<Command> chooser = new SendableChooser<>();
@@ -51,6 +51,9 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putData(gearCollector);
 
 		oi = new OI();
+		
+		CameraServer.getInstance().startAutomaticCapture("Shooter", 0);
+		CameraServer.getInstance().startAutomaticCapture("Gear", 1);
 
 	}
 
@@ -82,7 +85,6 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		new DriveForward(30, 0.5).start();
 //		autonomousCommand = chooser.getSelected();
 
 		/*

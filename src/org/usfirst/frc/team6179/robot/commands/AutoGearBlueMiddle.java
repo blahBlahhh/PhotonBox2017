@@ -7,7 +7,7 @@ public class AutoGearBlueMiddle extends CommandGroup
 {
 	public AutoGearBlueMiddle()
 	{
-		addSequential(new DriveForward(-74.93, 1));
+		addSequential(new DriveForward(-74.93, 0.8));
 		addSequential(new DeliverGear());
 		Timer.delay(2);
 		addSequential(new DriveForward(15,0.8));

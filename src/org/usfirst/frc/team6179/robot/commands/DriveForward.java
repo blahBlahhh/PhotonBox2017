@@ -11,8 +11,8 @@ public class DriveForward extends Command
 	double error;
 	double driveForwardSpeed;
 	double kDP = 0.2;
-	double kAP = -0.05;
-	double kTolerance = 0.1;
+	double kAP = 0.2;
+	double kTolerance = 0.1;       
 	
 	public DriveForward(double distance, double maxSpeed)
 	{
