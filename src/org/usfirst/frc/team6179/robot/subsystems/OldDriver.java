@@ -71,7 +71,7 @@ public class OldDriver extends Subsystem
 	public double getLeftDistance() {
 		return leftEncoder.getDistance();
 	}
-	
+
 	public double getRightDistance() {
 		return rightEncoder.getDistance();
 	}
@@ -87,6 +87,24 @@ public class OldDriver extends Subsystem
 	public void stop(){
 		drive(0,0,0,0);
 	}
+
+	public int getLeftFPGAIndex() {
+		return leftEncoder.getFPGAIndex();
+	}
+
+	public int getRightFPGAIndex() {
+		return rightEncoder.getFPGAIndex();
+	}
+
+	/*
+	public double getLeftDistance() {
+		return leftEncoder.getDistance();
+	}
+
+	public double getRightDistance() {
+		return rightEncoder.getDistance();
+	}
+	*/
 	
 
 	@Override

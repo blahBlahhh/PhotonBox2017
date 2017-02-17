@@ -80,7 +80,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		new DriveForward(45, 0.5).start();
+		new DriveForward(30, 0.5).start();
 //		autonomousCommand = chooser.getSelected();
 
 		/*
@@ -138,5 +138,7 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putNumber("Gyro", oldDriver.getAngle());
 		SmartDashboard.putNumber("Left Encoder Raw Counter", oldDriver.getLeftRaw());
 		SmartDashboard.putNumber("Right Encoder Raw Counter", oldDriver.getRightRaw());
+		SmartDashboard.putNumber("Left Encoder FPGA Index", oldDriver.getLeftFPGAIndex());
+		SmartDashboard.putNumber("Right Encoder FPGA Index", oldDriver.getRightFPGAIndex());
 	}
 }
