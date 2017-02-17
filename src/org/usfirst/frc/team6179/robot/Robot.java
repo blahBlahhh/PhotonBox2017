@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team6179.robot.commands.DriveForward;
 import org.usfirst.frc.team6179.robot.commands.DriveWithOldStick;
+import org.usfirst.frc.team6179.robot.subsystems.Cameras;
 import org.usfirst.frc.team6179.robot.subsystems.FuelBlender;
 import org.usfirst.frc.team6179.robot.subsystems.FuelCollector;
 import org.usfirst.frc.team6179.robot.subsystems.FuelDeliverer;
@@ -34,6 +35,7 @@ public class Robot extends IterativeRobot {
 	public static GearCollector gearCollector = new GearCollector();
 	public static RopeClimber ropeClimber = new RopeClimber();
 	public static OldDriver oldDriver = new OldDriver();
+	public static Cameras cameras = new Cameras();
 
 //	Command autonomousCommand;
 //	SendableChooser<Command> chooser = new SendableChooser<>();
@@ -80,7 +82,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		new DriveForward(30, 1).start();
+		new DriveForward(30, 0.5).start();
 //		autonomousCommand = chooser.getSelected();
 
 		/*
