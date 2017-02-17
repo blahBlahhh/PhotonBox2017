@@ -26,10 +26,16 @@ public class OldDriver extends Subsystem
 		leftMotor = new Talon(RobotMap.leftMotorPort);
 		drive = new RobotDrive(leftMotor,rightMotor);
 
-		leftEncoder = new Encoder(RobotMap.leftEncoderPortA,RobotMap.leftEncoderPortB,false,EncodingType.k4X);
-		leftEncoder.setIndexSource(RobotMap.leftEncoderIndexPort);
+		leftEncoder = new Encoder(RobotMap.leftEncoderPortA,RobotMap.leftEncoderPortB,RobotMap.leftEncoderIndexPort);
+		rightEncoder = new Encoder(RobotMap.leftEncoderPortA,RobotMap.rightEncoderPortB,RobotMap.rightEncoderIndexPort);
+
+        /*
+        leftEncoder = new Encoder(RobotMap.leftEncoderPortA,RobotMap.leftEncoderPortB,false,EncodingType.k4X);
+        leftEncoder.setIndexSource(RobotMap.leftEncoderIndexPort);
 		rightEncoder = new Encoder(RobotMap.rightEncoderPortA,RobotMap.rightEncoderPortB,true,EncodingType.k4X);
 		rightEncoder.setIndexSource(RobotMap.rightEncoderIndexPort);
+		*/
+
 		leftEncoder.setDistancePerPulse(0.037704);
 		rightEncoder.setDistancePerPulse(0.037704);
 		
@@ -87,25 +93,6 @@ public class OldDriver extends Subsystem
 	public void stop(){
 		drive(0,0,0,0);
 	}
-
-	public int getLeftFPGAIndex() {
-		return leftEncoder.getFPGAIndex();
-	}
-
-	public int getRightFPGAIndex() {
-		return rightEncoder.getFPGAIndex();
-	}
-
-	/*
-	public double getLeftDistance() {
-		return leftEncoder.getDistance();
-	}
-
-	public double getRightDistance() {
-		return rightEncoder.getDistance();
-	}
-	*/
-	
 
 	@Override
 	protected void initDefaultCommand() {
