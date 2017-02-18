@@ -1,8 +1,13 @@
 
 package org.usfirst.frc.team6179.robot;
 
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+import org.usfirst.frc.team6179.robot.commands.AutoFuelBlue;
+import org.usfirst.frc.team6179.robot.commands.AutoGearBlueLeft;
+import org.usfirst.frc.team6179.robot.commands.AutoGearBlueMiddle;
+import org.usfirst.frc.team6179.robot.commands.AutoGearBlueRight;
 import org.usfirst.frc.team6179.robot.commands.DriveWithOldStick;
 import org.usfirst.frc.team6179.robot.subsystems.FuelBlender;
 import org.usfirst.frc.team6179.robot.subsystems.FuelCollector;
@@ -14,6 +19,7 @@ import org.usfirst.frc.team6179.robot.subsystems.RopeClimber;
 
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
@@ -35,8 +41,8 @@ public class Robot extends IterativeRobot {
 	public static RopeClimber ropeClimber = new RopeClimber();
 	public static OldDriver oldDriver = new OldDriver();
 
-//	Command autonomousCommand;
-//	SendableChooser<Command> chooser = new SendableChooser<>();
+	Command autonomousCommand;
+	SendableChooser<Command> chooser = new SendableChooser<>();
 
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -52,6 +58,11 @@ public class Robot extends IterativeRobot {
 		
 		CameraServer.getInstance().startAutomaticCapture("Shooter", 0);
 		CameraServer.getInstance().startAutomaticCapture("Gear", 1);
+		
+		chooser.addObject("Right Gear", new AutoGearBlueRight());
+		chooser.addObject("Middle Gear", new AutoGearBlueMiddle());
+		chooser.addObject("Left Gear", new AutoGearBlueLeft());
+		chooser.addObject("Shoot Fuel", new AutoFuelBlue());
 
 	}
 
@@ -83,7 +94,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-//		autonomousCommand = chooser.getSelected();
+		autonomousCommand = chooser.getSelected();
 
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",
@@ -93,8 +104,8 @@ public class Robot extends IterativeRobot {
 		 */
 
 		// schedule the autonomous command (example)
-//		if (autonomousCommand != null)
-//			autonomousCommand.start();
+		if (autonomousCommand != null)
+			autonomousCommand.start();
 	}
 
 	/**
@@ -112,8 +123,8 @@ public class Robot extends IterativeRobot {
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
-//		if (autonomousCommand != null)
-//			autonomousCommand.cancel();
+		if (autonomousCommand != null)
+			autonomousCommand.cancel();
 		new DriveWithOldStick().start();
 	}
 

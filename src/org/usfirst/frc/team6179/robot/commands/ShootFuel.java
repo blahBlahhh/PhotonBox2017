@@ -45,7 +45,7 @@ public class ShootFuel extends Command {
 	@Override
 	protected void interrupted()
 	{
-		end();
+		
 	}
 
 }

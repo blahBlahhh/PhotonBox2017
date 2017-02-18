@@ -23,7 +23,7 @@ public class OI {
 		 new JoystickButton(stick,2).toggleWhenPressed(new CollectFuel());
 		 new JoystickButton(stick,3).toggleWhenPressed(new DeliverGear());
 		 new JoystickButton(stick,4).toggleWhenPressed(new ClimbRope());
-		 new JoystickButton(stick,5).toggleWhenPressed(new ReverseFuelBlender());	//TODO check whether ShootFuel() is interrupted
+		 new JoystickButton(stick,6).toggleWhenPressed(new ReverseFuelBlender());	//TODO check whether ShootFuel() is interrupted
 	 }
 	 
 	 public Joystick getStick()
