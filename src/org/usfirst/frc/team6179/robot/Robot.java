@@ -4,11 +4,7 @@ package org.usfirst.frc.team6179.robot;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import org.usfirst.frc.team6179.robot.commands.AutoFuelBlue;
-import org.usfirst.frc.team6179.robot.commands.AutoGearBlueLeft;
-import org.usfirst.frc.team6179.robot.commands.AutoGearBlueMiddle;
-import org.usfirst.frc.team6179.robot.commands.AutoGearBlueRight;
-import org.usfirst.frc.team6179.robot.commands.DriveWithOldStick;
+import org.usfirst.frc.team6179.robot.commands.*;
 import org.usfirst.frc.team6179.robot.subsystems.FuelBlender;
 import org.usfirst.frc.team6179.robot.subsystems.FuelCollector;
 import org.usfirst.frc.team6179.robot.subsystems.FuelDeliverer;
@@ -94,7 +90,10 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		autonomousCommand = chooser.getSelected();
+		new DriveForward (50,1).start();
+		//autonomousCommand = chooser.getSelected();
+
+		//new AutoGearBlueRight().start();
 
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",
@@ -104,8 +103,8 @@ public class Robot extends IterativeRobot {
 		 */
 
 		// schedule the autonomous command (example)
-		if (autonomousCommand != null)
-			autonomousCommand.start();
+		//if (autonomousCommand != null)
+		//	autonomousCommand.start();
 	}
 
 	/**
@@ -146,8 +145,9 @@ public class Robot extends IterativeRobot {
 	}
 
 	private void log() {
-		SmartDashboard.putNumber("Left Encoder Distance", oldDriver.getLeftDistance());
-		SmartDashboard.putNumber("Right Encoder Distance", oldDriver.getRightDistance());
+		SmartDashboard.putNumber("Left Encoder Distance", -oldDriver.getLeftDistance());
+		SmartDashboard.putNumber("Right Encoder Distance", -oldDriver.getRightDistance());
+		//SmartDashboard.putNumber("Error", oldDriver.getError());
 		SmartDashboard.putNumber("Gyro", oldDriver.getAngle());
 		SmartDashboard.putNumber("Left Encoder Raw Counter", oldDriver.getLeftRaw());
 		SmartDashboard.putNumber("Right Encoder Raw Counter", oldDriver.getRightRaw());

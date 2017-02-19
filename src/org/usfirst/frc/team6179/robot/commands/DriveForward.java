@@ -28,7 +28,7 @@ public class DriveForward extends Command
 	
 	protected void execute()
 	{
-		error = (distance - Robot.oldDriver.getRightDistance());
+		error = (distance + Robot.oldDriver.getRightDistance());
 		double angle = Robot.oldDriver.getAngle();
 		
 		if (Math.abs(driveForwardSpeed * kDP * error) >= driveForwardSpeed){

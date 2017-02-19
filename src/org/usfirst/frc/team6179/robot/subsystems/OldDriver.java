@@ -1,6 +1,7 @@
 package org.usfirst.frc.team6179.robot.subsystems;
 
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import org.usfirst.frc.team6179.robot.Robot;
 import org.usfirst.frc.team6179.robot.RobotMap;
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.CounterBase.EncodingType;
@@ -20,6 +21,7 @@ public class OldDriver extends Subsystem
 	ADXRS450_Gyro gyro;
 	Encoder leftEncoder;
 	Encoder rightEncoder;
+	//double error = (50 + Robot.oldDriver.getRightDistance());
 	
 	public OldDriver()
 	{
@@ -85,6 +87,12 @@ public class OldDriver extends Subsystem
 	public int getRightRaw() {
 		return rightEncoder.getRaw();
 	}
+
+	/*
+	public double getError() {
+		return error;
+	}
+	*/
 	
 	public void stop(){
 		drive(0,0,0,0);

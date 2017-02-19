@@ -7,6 +7,8 @@ public class AutoGearBlueLeft extends CommandGroup
 {
 	public AutoGearBlueLeft()
 	{
+		Timer.delay(3);
+		addSequential(new DelayCompressor());
 		addSequential(new DriveForward(-91.235, 0.8));      //TODO undecided speed
 		addSequential(new DriveSwervely(60, 0.8));		  //TODO undecided angle
 		addSequential(new DriveForward(-22.325, 0.8));	  //distance = actual distance - half Robot length

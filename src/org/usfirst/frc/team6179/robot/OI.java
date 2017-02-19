@@ -16,6 +16,8 @@ public class OI {
 	// You create one by telling it which joystick it's on and which button
 	// number it is.
 	 Joystick stick = new Joystick(0);
+
+	 JoystickButton reverseButton;
 	// Button button = new JoystickButton(stick, buttonNumber);
 	 public OI()
 	 {
@@ -23,13 +25,18 @@ public class OI {
 		 new JoystickButton(stick,2).toggleWhenPressed(new CollectFuel());
 		 new JoystickButton(stick,3).toggleWhenPressed(new DeliverGear());
 		 new JoystickButton(stick,4).toggleWhenPressed(new ClimbRope());
-		 new JoystickButton(stick,6).toggleWhenPressed(new ReverseFuelBlender());	//TODO check whether ShootFuel() is interrupted
+		 //new JoystickButton(stick,6).toggleWhenPressed(new ReverseFuelBlender());
+		 reverseButton=new JoystickButton(stick,6);
 	 }
 	 
 	 public Joystick getStick()
 	 {
 		 return stick;
 	 }
+
+	public JoystickButton getReverseButton(){
+		return reverseButton;
+	}
 	// There are a few additional built in buttons you can use. Additionally,
 	// by subclassing Button you can create custom triggers and bind those to
 	// commands the same as any other Button.

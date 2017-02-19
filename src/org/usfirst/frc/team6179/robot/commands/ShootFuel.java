@@ -25,7 +25,11 @@ public class ShootFuel extends Command {
 	@Override
 	protected void execute()
 	{
-		
+		if(Robot.oi.getReverseButton().get()){
+			Robot.fuelBlender.reverse();
+		}else{
+			Robot.fuelBlender.forward();
+		}
 	}
 
 	@Override
@@ -45,7 +49,7 @@ public class ShootFuel extends Command {
 	@Override
 	protected void interrupted()
 	{
-		
+		end();
 	}
 
 }
