@@ -11,7 +11,7 @@ public class DelayCompressor extends Command {
 
     @Override
     protected void initialize () {
-        Robot.gearCollector.startCompressing();
+        Robot.gearCollector.stopCompressing();
     }
 
     @Override
@@ -20,7 +20,7 @@ public class DelayCompressor extends Command {
     }
     @Override
     protected void end () {
-        Robot.gearCollector.stopCompressing();
+        Robot.gearCollector.startCompressing();
     }
 
     @Override

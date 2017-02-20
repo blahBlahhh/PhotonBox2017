@@ -11,7 +11,6 @@ public class GearCollector extends Subsystem
 {
 	Compressor compressor;
 	DoubleSolenoid solenoid;
-	
 	public GearCollector()
 	{
 		solenoid = new DoubleSolenoid(RobotMap.forwardSolenoidPort,RobotMap.reverseSolenoidPort);
@@ -31,11 +30,11 @@ public class GearCollector extends Subsystem
 	}
 
 	public void startCompressing() {
-		compressor.start();
+		compressor.setClosedLoopControl(false);
 	}
 
 	public void stopCompressing () {
-		compressor.stop();
+		compressor.setClosedLoopControl(true);
 	}
 
 	@Override

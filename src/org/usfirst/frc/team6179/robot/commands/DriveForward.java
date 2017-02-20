@@ -3,6 +3,7 @@ package org.usfirst.frc.team6179.robot.commands;
 import org.usfirst.frc.team6179.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class DriveForward extends Command
 {
@@ -28,7 +29,10 @@ public class DriveForward extends Command
 	
 	protected void execute()
 	{
-		error = (distance + Robot.oldDriver.getRightDistance());
+		error = (distance + Robot.oldDriver.getRightDistance());	//TODO Check if the distance shown on the SmartDashboard is correct.
+		
+		SmartDashboard.putNumber("distance error", error);
+		
 		double angle = Robot.oldDriver.getAngle();
 		
 		if (Math.abs(driveForwardSpeed * kDP * error) >= driveForwardSpeed){

@@ -21,7 +21,7 @@ public class OldDriver extends Subsystem
 	ADXRS450_Gyro gyro;
 	Encoder leftEncoder;
 	Encoder rightEncoder;
-	//double error = (50 + Robot.oldDriver.getRightDistance());
+	//double error = (50 + getAngle());
 	
 	public OldDriver()
 	{
@@ -53,6 +53,11 @@ public class OldDriver extends Subsystem
 		gyro.reset();
 		leftEncoder.reset();
 		rightEncoder.reset();
+	}
+	
+	public void calibrate() {
+		gyro.calibrate();
+		gyro.reset();
 	}
 	
 	public double getAngle()
@@ -87,13 +92,11 @@ public class OldDriver extends Subsystem
 	public int getRightRaw() {
 		return rightEncoder.getRaw();
 	}
-
-	/*
+/*
 	public double getError() {
 		return error;
 	}
 	*/
-	
 	public void stop(){
 		drive(0,0,0,0);
 	}

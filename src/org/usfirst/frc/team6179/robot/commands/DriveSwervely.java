@@ -2,7 +2,9 @@ package org.usfirst.frc.team6179.robot.commands;
 
 import org.usfirst.frc.team6179.robot.Robot;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class DriveSwervely extends Command
 {
@@ -23,12 +25,16 @@ public class DriveSwervely extends Command
 	protected void initialize()
 	{
 		Robot.oldDriver.init();
+		
+		Robot.oldDriver.calibrate();
+		Timer.delay(5);
 	}
 	
 	protected void execute()
 	{
-		error = (angle - Robot.oldDriver.getAngle());
 		
+		error = (angle - Robot.oldDriver.getAngle());
+				
 		if(Math.abs(turningSpeed * kP * error) >= turningSpeed)
 		{
 			Robot.oldDriver.drive(0, turningSpeed*error/Math.abs(error), 0, 0);

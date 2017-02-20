@@ -15,6 +15,7 @@ import org.usfirst.frc.team6179.robot.subsystems.RopeClimber;
 
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -90,8 +91,10 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		new DriveForward (50,1).start();
+		//new AutoGearBlueMiddle().start();
+		new DriveForward (-74.93, 0.7).start();
 		//autonomousCommand = chooser.getSelected();
+		//autonomousCommand.start();
 
 		//new AutoGearBlueRight().start();
 
