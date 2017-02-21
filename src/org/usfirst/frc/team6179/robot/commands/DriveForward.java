@@ -29,7 +29,7 @@ public class DriveForward extends Command
 	
 	protected void execute()
 	{
-		error = (distance + Robot.oldDriver.getRightDistance());	//TODO Check if the distance shown on the SmartDashboard is correct.
+		error = (distance - Robot.oldDriver.getRightDistance());
 		
 		SmartDashboard.putNumber("distance error", error);
 		

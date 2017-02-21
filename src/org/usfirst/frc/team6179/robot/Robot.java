@@ -92,11 +92,12 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void autonomousInit() {
 		//new AutoGearBlueMiddle().start();
-		new DriveForward (-74.93, 0.7).start();
+		//new DriveForward (-74.93, 0.7).start();
 		//autonomousCommand = chooser.getSelected();
 		//autonomousCommand.start();
 
 		//new AutoGearBlueRight().start();
+		new DriveSwervely(-270, 1).start();
 
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",

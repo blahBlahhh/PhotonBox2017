@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.PIDSourceType;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class OldDriver extends Subsystem
@@ -21,7 +22,6 @@ public class OldDriver extends Subsystem
 	ADXRS450_Gyro gyro;
 	Encoder leftEncoder;
 	Encoder rightEncoder;
-	//double error = (50 + getAngle());
 	
 	public OldDriver()
 	{
@@ -29,8 +29,8 @@ public class OldDriver extends Subsystem
 		leftMotor = new Talon(RobotMap.leftMotorPort);
 		drive = new RobotDrive(leftMotor,rightMotor);
 
-        leftEncoder = new Encoder(RobotMap.leftEncoderPortA,RobotMap.leftEncoderPortB,false,EncodingType.k4X);
-		rightEncoder = new Encoder(RobotMap.rightEncoderPortA,RobotMap.rightEncoderPortB,true,EncodingType.k4X);
+        leftEncoder = new Encoder(RobotMap.leftEncoderPortA,RobotMap.leftEncoderPortB,true,EncodingType.k4X);
+		rightEncoder = new Encoder(RobotMap.rightEncoderPortA,RobotMap.rightEncoderPortB,false,EncodingType.k4X);
 
 		leftEncoder.setDistancePerPulse(0.0376991118);
 		rightEncoder.setDistancePerPulse(0.0376991118);
@@ -40,6 +40,7 @@ public class OldDriver extends Subsystem
 		
 		gyro = new ADXRS450_Gyro();
 		gyro.calibrate();
+		Timer.delay(3);
 
 		LiveWindow.addActuator("Old Driver", "Left Motor", (Talon) leftMotor);
 		LiveWindow.addActuator("Old Driver", "Right Motor", (Talon) rightMotor);
@@ -53,11 +54,6 @@ public class OldDriver extends Subsystem
 		gyro.reset();
 		leftEncoder.reset();
 		rightEncoder.reset();
-	}
-	
-	public void calibrate() {
-		gyro.calibrate();
-		gyro.reset();
 	}
 	
 	public double getAngle()
@@ -92,11 +88,7 @@ public class OldDriver extends Subsystem
 	public int getRightRaw() {
 		return rightEncoder.getRaw();
 	}
-/*
-	public double getError() {
-		return error;
-	}
-	*/
+	
 	public void stop(){
 		drive(0,0,0,0);
 	}

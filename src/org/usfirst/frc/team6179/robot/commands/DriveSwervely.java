@@ -12,7 +12,7 @@ public class DriveSwervely extends Command
 	double angle;
 	double turningSpeed;
 	double error;
-	double kP = 0.1;
+	double kP = 0.046;
 	double kTolerance = 0.1;
 	
 	public DriveSwervely(double angle, double maxSpeed)
@@ -25,16 +25,20 @@ public class DriveSwervely extends Command
 	protected void initialize()
 	{
 		Robot.oldDriver.init();
-		
-		Robot.oldDriver.calibrate();
-		Timer.delay(5);
 	}
 	
 	protected void execute()
 	{
-		
+		/**
+		 * clockwise
+		 * getAngle() 越来越小的负数
+		 * oldDriver.getAngle() 越来越小的负数
+		 * error 越来越大的负数
+		 */
 		error = (angle - Robot.oldDriver.getAngle());
-				
+
+		SmartDashboard.putNumber("Error", error);
+
 		if(Math.abs(turningSpeed * kP * error) >= turningSpeed)
 		{
 			Robot.oldDriver.drive(0, turningSpeed*error/Math.abs(error), 0, 0);

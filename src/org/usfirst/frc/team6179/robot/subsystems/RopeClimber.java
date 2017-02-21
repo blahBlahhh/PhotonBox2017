@@ -20,6 +20,10 @@ public class RopeClimber extends Subsystem
 	{
 		ropeClimber.set(1);
 	}
+
+	public void release() {
+		ropeClimber.set(-1);
+	}
 	
 	public void stop()
 	{

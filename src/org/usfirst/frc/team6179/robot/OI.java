@@ -25,8 +25,9 @@ public class OI {
 		 new JoystickButton(stick,2).toggleWhenPressed(new CollectFuel());
 		 new JoystickButton(stick,3).toggleWhenPressed(new DeliverGear());
 		 new JoystickButton(stick,4).toggleWhenPressed(new ClimbRope());
+		 new JoystickButton(stick,5).toggleWhenPressed(new ReleaseRope());
 		 //new JoystickButton(stick,6).toggleWhenPressed(new ReverseFuelBlender());
-		 reverseButton=new JoystickButton(stick,6);
+		 reverseButton = new JoystickButton(stick,6);
 	 }
 	 
 	 public Joystick getStick()
@@ -34,7 +35,7 @@ public class OI {
 		 return stick;
 	 }
 
-	public JoystickButton getReverseButton(){
+	 public JoystickButton getReverseButton(){
 		return reverseButton;
 	}
 	// There are a few additional built in buttons you can use. Additionally,
