@@ -10,7 +10,7 @@ public class AutoFuelBlue extends CommandGroup
 		Timer.delay(3);
 		addSequential(new DelayCompressor());
 		addSequential(new DriveForward(-70, 0.8));
-		addSequential(new DriveSwervely(45, 0.8));
+		addSequential(new DriveSwervely(45, 0.5));
 		addSequential(new DriveForward(83.065, 0.8));
 		addSequential(new ShootFuel());
 	}

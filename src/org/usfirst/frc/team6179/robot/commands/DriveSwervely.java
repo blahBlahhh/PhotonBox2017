@@ -2,7 +2,6 @@ package org.usfirst.frc.team6179.robot.commands;
 
 import org.usfirst.frc.team6179.robot.Robot;
 
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -35,7 +34,7 @@ public class DriveSwervely extends Command
 		 * oldDriver.getAngle() 越来越小的负数
 		 * error 越来越大的负数
 		 */
-		error = (angle - Robot.oldDriver.getAngle());
+		error = (angle + Robot.oldDriver.getAngle());
 
 		SmartDashboard.putNumber("Error", error);
 
@@ -51,7 +50,7 @@ public class DriveSwervely extends Command
 
 	@Override
 	protected boolean isFinished() {
-		return Math.abs(error) <= kTolerance;
+		return Math.abs(error) <= kTolerance /*&& Math.abs(Robot.oldDriver.getRate())<=0.05*/;	//TODO undecided critical value
 	}
 	
 	protected void end()

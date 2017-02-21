@@ -1,7 +1,6 @@
 package org.usfirst.frc.team6179.robot.subsystems;
 
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import org.usfirst.frc.team6179.robot.Robot;
 import org.usfirst.frc.team6179.robot.RobotMap;
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.CounterBase.EncodingType;
@@ -10,7 +9,6 @@ import edu.wpi.first.wpilibj.PIDSourceType;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Talon;
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class OldDriver extends Subsystem
@@ -40,7 +38,6 @@ public class OldDriver extends Subsystem
 		
 		gyro = new ADXRS450_Gyro();
 		gyro.calibrate();
-		Timer.delay(3);
 
 		LiveWindow.addActuator("Old Driver", "Left Motor", (Talon) leftMotor);
 		LiveWindow.addActuator("Old Driver", "Right Motor", (Talon) rightMotor);
@@ -59,6 +56,10 @@ public class OldDriver extends Subsystem
 	public double getAngle()
 	{
 		return gyro.getAngle();
+	}
+
+	public double getRate() {
+		return gyro.getRate();
 	}
 	
 	public void drive(double HongKongMoveValue,double HongKongRotateValue,double WesternMoveValue,double WesternRotateValue)

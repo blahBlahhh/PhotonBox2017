@@ -1,21 +1,15 @@
 
 package org.usfirst.frc.team6179.robot;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team6179.robot.commands.*;
-import org.usfirst.frc.team6179.robot.subsystems.FuelBlender;
-import org.usfirst.frc.team6179.robot.subsystems.FuelCollector;
-import org.usfirst.frc.team6179.robot.subsystems.FuelDeliverer;
-import org.usfirst.frc.team6179.robot.subsystems.FuelShooter;
-import org.usfirst.frc.team6179.robot.subsystems.GearCollector;
-import org.usfirst.frc.team6179.robot.subsystems.OldDriver;
-import org.usfirst.frc.team6179.robot.subsystems.RopeClimber;
+import org.usfirst.frc.team6179.robot.subsystems.*;
 
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -53,8 +47,8 @@ public class Robot extends IterativeRobot {
 
 		oi = new OI();
 		
-		CameraServer.getInstance().startAutomaticCapture("Shooter", 0);
-		CameraServer.getInstance().startAutomaticCapture("Gear", 1);
+		//CameraServer.getInstance().startAutomaticCapture("Shooter", 2);
+		//CameraServer.getInstance().startAutomaticCapture("Gear", 3);
 		
 		chooser.addObject("Right Gear", new AutoGearBlueRight());
 		chooser.addObject("Middle Gear", new AutoGearBlueMiddle());
@@ -96,8 +90,11 @@ public class Robot extends IterativeRobot {
 		//autonomousCommand = chooser.getSelected();
 		//autonomousCommand.start();
 
-		//new AutoGearBlueRight().start();
-		new DriveSwervely(-270, 1).start();
+		new AutoGearBlueRight().start();
+		//Timer.delay(5);
+		//double a=SmartDashboard.getDouble("angle",-90);
+		//double b=SmartDashboard.getDouble("speed",0.7);
+		//new DriveSwervely(45,0.6).start();
 
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",
