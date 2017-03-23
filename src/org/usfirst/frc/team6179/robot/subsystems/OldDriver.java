@@ -37,7 +37,7 @@ public class OldDriver extends Subsystem
 		leftEncoder.setPIDSourceType(PIDSourceType.kDisplacement);
 		
 		gyro = new ADXRS450_Gyro();
-		gyro.calibrate();
+		gyro.calibrate();	//TODO test this line
 
 		LiveWindow.addActuator("Old Driver", "Left Motor", (Talon) leftMotor);
 		LiveWindow.addActuator("Old Driver", "Right Motor", (Talon) rightMotor);

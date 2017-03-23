@@ -51,9 +51,12 @@ public class Robot extends IterativeRobot {
 		//CameraServer.getInstance().startAutomaticCapture("Gear", 3);
 		
 		chooser.addObject("Right Gear", new AutoGearBlueRight());
-		chooser.addObject("Middle Gear", new AutoGearBlueMiddle());
+		chooser.addObject("Middle Gear", new AutoGearMiddle());
 		chooser.addObject("Left Gear", new AutoGearBlueLeft());
 		chooser.addObject("Shoot Fuel", new AutoFuelBlue());
+		chooser.addObject("Right Gear", new AutoGearRedRight());
+		chooser.addObject("Left Gear", new AutoGearRedLeft());
+		chooser.addObject("Shoot Fuel", new AutoFuelRed());
 
 	}
 
@@ -87,10 +90,13 @@ public class Robot extends IterativeRobot {
 	public void autonomousInit() {
 		//new AutoGearBlueMiddle().start();
 		//new DriveForward (-74.93, 0.7).start();
-		//autonomousCommand = chooser.getSelected();
-		//autonomousCommand.start();
+		if (autonomousCommand != null){
+			autonomousCommand = chooser.getSelected();
+			autonomousCommand.start();
+		}
+		
 
-		new AutoGearBlueRight().start();
+		//new AutoGearBlueRight().start();
 		//Timer.delay(5);
 		//double a=SmartDashboard.getDouble("angle",-90);
 		//double b=SmartDashboard.getDouble("speed",0.7);
