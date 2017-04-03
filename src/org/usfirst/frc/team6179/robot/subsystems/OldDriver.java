@@ -38,12 +38,13 @@ public class OldDriver extends Subsystem
 		
 		gyro = new ADXRS450_Gyro();
 		gyro.calibrate();	//TODO test this line
-
+/*
 		LiveWindow.addActuator("Old Driver", "Left Motor", (Talon) leftMotor);
 		LiveWindow.addActuator("Old Driver", "Right Motor", (Talon) rightMotor);
 		LiveWindow.addSensor("Encoder", "Left Encoder", leftEncoder);
 		LiveWindow.addSensor("Encoder", "Right Encoder", rightEncoder);
 		LiveWindow.addSensor("Gyro", "Gyro", gyro);
+*/
 	}
 	
 	public void init()
@@ -64,8 +65,8 @@ public class OldDriver extends Subsystem
 	
 	public void drive(double HongKongMoveValue,double HongKongRotateValue,double WesternMoveValue,double WesternRotateValue)
 	{
-		double MoveValue = HongKongMoveValue + 0.5*WesternMoveValue;
-		double RotateValue = HongKongRotateValue + 0.5*WesternRotateValue;
+		double MoveValue = -1*HongKongMoveValue - 0.6*WesternMoveValue;
+		double RotateValue = HongKongRotateValue + 0.6*WesternRotateValue;
 		if(MoveValue > 1)	MoveValue = 1;
 		if(RotateValue > 1) RotateValue = 1;
 		if(MoveValue < -1)	MoveValue = -1;

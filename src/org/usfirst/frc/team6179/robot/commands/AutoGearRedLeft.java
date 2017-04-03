@@ -12,8 +12,8 @@ public class AutoGearRedLeft extends CommandGroup
 		addSequential(new DriveForward(-91.235, 0.7));
 		addSequential(new DriveSwervely(60, 0.7));			//TODO undecided angle
 		addSequential(new DriveForward(-22.325, 0.7));	  //distance = actual distance - half Robot length
-		addParallel(new DeliverGear());
-		Timer.delay(2);									  //TODO undecided time
+		addSequential(new OpenClaw(),2.3);							  //TODO undecided time
 		addSequential(new DriveForward(15, 0.7));		  //TODO undecided distance (15>Spring Length(10.5))
+		addSequential(new CloseClaw(),2);
 	}
 }

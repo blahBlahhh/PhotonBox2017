@@ -9,10 +9,11 @@ public class AutoGearMiddle extends CommandGroup
 	 */
 	public AutoGearMiddle()
 	{
-		addSequential(new DelayCompressor(), 3);			//TODO check if this works, 3s
-		addSequential(new DriveForward(-74.93, 0.7), 2.5);	//TODO note down the time it uses, 3s
-		addParallel(new DeliverGear(), 2);				//TODO check if the gear can be safely hung on the spring, 2s
+		//addSequential(new DelayCompressor(), 3);			//TODO check if this works, 3s
+		addSequential(new DriveForward(-50, 0.5), 2.72);	//TODO note down the time it uses, 3s
+		addSequential(new OpenClaw(),2.3);					//TODO check if the gear can be safely hung on the spring, 2s
 		//Timer.delay(2);
-		addSequential(new DriveForward(15, 0.7));			//TODO calculate the time that is left, 1s
+		addSequential(new DriveForward(15, 0.5),2);			//TODO calculate the time that is left, 1s
+		addSequential(new CloseClaw(),2);
 	}
 }

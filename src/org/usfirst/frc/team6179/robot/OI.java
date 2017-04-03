@@ -26,7 +26,8 @@ public class OI {
 		 new JoystickButton(stick,3).toggleWhenPressed(new DeliverGear());
 		 new JoystickButton(stick,4).toggleWhenPressed(new ClimbRope());
 		 new JoystickButton(stick,5).toggleWhenPressed(new ReleaseRope());
-		 //new JoystickButton(stick,6).toggleWhenPressed(new ReverseFuelBlender());
+		 new JoystickButton(stick,7).whenPressed(new TurtleLeft());
+		 new JoystickButton(stick,8).whenPressed(new TurtleRight());
 		 reverseButton = new JoystickButton(stick,6);
 	 }
 	 

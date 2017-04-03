@@ -1,8 +1,6 @@
 
 package org.usfirst.frc.team6179.robot;
 
-import edu.wpi.first.wpilibj.Timer;
-import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team6179.robot.commands.*;
@@ -33,7 +31,7 @@ public class Robot extends IterativeRobot {
 	public static OldDriver oldDriver = new OldDriver();
 
 	Command autonomousCommand;
-	SendableChooser<Command> chooser = new SendableChooser<>();
+	//SendableChooser<Command> chooser = new SendableChooser<>();
 
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -47,9 +45,9 @@ public class Robot extends IterativeRobot {
 
 		oi = new OI();
 		
-		//CameraServer.getInstance().startAutomaticCapture("Shooter", 2);
-		//CameraServer.getInstance().startAutomaticCapture("Gear", 3);
-		
+		CameraServer.getInstance().startAutomaticCapture("Shooter", 1);
+		CameraServer.getInstance().startAutomaticCapture("Gear", 0);
+		/*
 		chooser.addObject("Right Gear", new AutoGearBlueRight());
 		chooser.addObject("Middle Gear", new AutoGearMiddle());
 		chooser.addObject("Left Gear", new AutoGearBlueLeft());
@@ -57,7 +55,7 @@ public class Robot extends IterativeRobot {
 		chooser.addObject("Right Gear", new AutoGearRedRight());
 		chooser.addObject("Left Gear", new AutoGearRedLeft());
 		chooser.addObject("Shoot Fuel", new AutoFuelRed());
-
+*/
 	}
 
 	/**
@@ -88,12 +86,13 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		//new AutoGearBlueMiddle().start();
 		//new DriveForward (-74.93, 0.7).start();
-		if (autonomousCommand != null){
-			autonomousCommand = chooser.getSelected();
-			autonomousCommand.start();
-		}
+		//if (autonomousCommand != null){
+		new AutoBaseline().start();
+		//new AutoBaseline().start();
+			//	autonomousCommand = chooser.getSelected();
+		//	autonomousCommand.start();
+		//}
 		
 
 		//new AutoGearBlueRight().start();
@@ -120,7 +119,6 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
-		log();
 	}
 
 	@Override
@@ -140,7 +138,6 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
-		log();
 	}
 
 	/**
@@ -151,12 +148,12 @@ public class Robot extends IterativeRobot {
 		LiveWindow.run();
 	}
 
-	private void log() {
+/*	private void log() {
 		SmartDashboard.putNumber("Left Encoder Distance", -oldDriver.getLeftDistance());
 		SmartDashboard.putNumber("Right Encoder Distance", -oldDriver.getRightDistance());
 		//SmartDashboard.putNumber("Error", oldDriver.getError());
 		SmartDashboard.putNumber("Gyro", oldDriver.getAngle());
 		SmartDashboard.putNumber("Left Encoder Raw Counter", oldDriver.getLeftRaw());
 		SmartDashboard.putNumber("Right Encoder Raw Counter", oldDriver.getRightRaw());
-	}
+	}*/
 }
